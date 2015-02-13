@@ -1,6 +1,6 @@
 # TEF icons
 
-This project is using (grunt-webfont)[https://github.com/sapegin/grunt-webfont]
+This project is using [grunt-webfont](https://github.com/sapegin/grunt-webfont)
 
 To use the font:
 - Download icons.css
