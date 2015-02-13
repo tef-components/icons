@@ -9,3 +9,5 @@ To use the font:
 ```html
 <span data-icon="whatever"></span>
 ```
+
+Preview all icons: [http://tef-components.github.io/icons/icons.html](http://tef-components.github.io/icons/icons.html)
