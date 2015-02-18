@@ -47,7 +47,7 @@ module.exports = function(grunt) {
     bump: {
       options : {
         files: ['bower.json'],
-        commitFiles: ['*.*'],
+        commitFiles: ["-a"],
         push: false
       }
     }
