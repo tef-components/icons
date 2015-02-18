@@ -44,6 +44,10 @@ module.exports = function(grunt) {
       html: 'fonts/icons.html',
     },
 
+    exec: {
+      command: 'git add .'
+    },
+
     bump: {
       options : {
         files: ['bower.json'],
@@ -55,12 +59,14 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-webfont');
+  grunt.loadNpmTasks('grunt-exec');
   grunt.loadNpmTasks('grunt-bump');
 
   grunt.registerTask('default', [
     'webfont:files',
     'webfont:embedded',
     'clean',
+    'exec',
     'bump'
   ]);
 };
