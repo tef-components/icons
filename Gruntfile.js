@@ -52,7 +52,7 @@ module.exports = function(grunt) {
       options : {
         files: ['bower.json'],
         commitFiles: ["-a"],
-        push: false
+        push: 'origin'
       }
     }
   });
