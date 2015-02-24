@@ -42,15 +42,31 @@ module.exports = function(grunt) {
     clean: {
       css: 'fonts/icons.css',
       html: 'fonts/icons.html',
+    },
+
+    exec: {
+      command: 'git add .'
+    },
+
+    bump: {
+      options : {
+        files: ['bower.json'],
+        commitFiles: ["-a"],
+        push: false
+      }
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-webfont');
+  grunt.loadNpmTasks('grunt-exec');
+  grunt.loadNpmTasks('grunt-bump');
 
   grunt.registerTask('default', [
     'webfont:files',
     'webfont:embedded',
-    'clean'
+    'clean',
+    'exec',
+    'bump'
   ]);
 };
