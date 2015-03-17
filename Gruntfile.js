@@ -13,9 +13,8 @@ module.exports = function(grunt) {
         dest: './',
         options: {
           font: 'icons',
-          embed: 'ttf',
+          embed: 'true',
           types: 'ttf',
-          ligatures: true,
           template: 'templates/style.css',
           htmlDemoTemplate: 'templates/index.html',
           templateOptions: {
@@ -33,8 +32,6 @@ module.exports = function(grunt) {
         options: {
           font: 'icons',
           types: 'woff,ttf,eot',
-          ligatures: true,
-          hashes: false
         }
       }
     },
