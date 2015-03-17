@@ -42,7 +42,20 @@ module.exports = function(grunt) {
     },
 
     exec: {
-      command: 'git add .'
+      // add new icons before commiting
+      add: {
+        command: 'git add .'
+      },
+
+      // push to gh-pages branch
+      pages: {
+        command: [
+          'git checkout gh-pages',
+          'git pull origin master',
+          'git push origin gh-pages',
+          'git checkout master'
+        ].join('&&')
+      }
     },
 
     bump: {
@@ -52,6 +65,7 @@ module.exports = function(grunt) {
         pushTo: 'origin'
       }
     }
+
   });
 
   grunt.loadNpmTasks('grunt-contrib-clean');
@@ -63,7 +77,8 @@ module.exports = function(grunt) {
     'webfont:files',
     'webfont:embedded',
     'clean',
-    'exec',
-    'bump'
+    'exec:add',
+    'bump',
+    'exec:pages'
   ]);
 };
