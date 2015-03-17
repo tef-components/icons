@@ -13,9 +13,8 @@ module.exports = function(grunt) {
         dest: './',
         options: {
           font: 'icons',
-          embed: 'ttf',
+          embed: 'true',
           types: 'ttf',
-          ligatures: true,
           template: 'templates/style.css',
           htmlDemoTemplate: 'templates/index.html',
           templateOptions: {
@@ -33,8 +32,6 @@ module.exports = function(grunt) {
         options: {
           font: 'icons',
           types: 'woff,ttf,eot',
-          ligatures: true,
-          hashes: false
         }
       }
     },
@@ -45,7 +42,20 @@ module.exports = function(grunt) {
     },
 
     exec: {
-      command: 'git add .'
+      // add new icons before commiting
+      add: {
+        command: 'git add .'
+      },
+
+      // push to gh-pages branch
+      pages: {
+        command: [
+          'git checkout gh-pages',
+          'git pull origin master',
+          'git push origin gh-pages',
+          'git checkout master'
+        ].join('&&')
+      }
     },
 
     bump: {
@@ -55,6 +65,7 @@ module.exports = function(grunt) {
         pushTo: 'origin'
       }
     }
+
   });
 
   grunt.loadNpmTasks('grunt-contrib-clean');
@@ -66,7 +77,8 @@ module.exports = function(grunt) {
     'webfont:files',
     'webfont:embedded',
     'clean',
-    'exec',
-    'bump'
+    'exec:add',
+    'bump',
+    'exec:pages'
   ]);
 };
