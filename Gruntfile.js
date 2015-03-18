@@ -5,16 +5,15 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('bower.json'),
 
+    // Creates embedded icon font
     webfont: {
-
-      // Creates a stylesheet with embedded font
       embedded: {
         src: 'source/*.svg',
-        dest: './',
+        dest: 'fonts/',
         options: {
           font: 'icons',
-          embed: 'true',
-          types: 'ttf',
+          embed: 'woff,ttf,eot',
+          engine: 'node',
           template: 'templates/style.css',
           htmlDemoTemplate: 'templates/index.html',
           templateOptions: {
@@ -23,22 +22,22 @@ module.exports = function(grunt) {
             mixinPrefix: ""
           }
         }
-      },
+      }
+    },
 
-      // Creates font files
-      files: {
-        src: 'source/*.svg',
-        dest: 'fonts/',
-        options: {
-          font: 'icons',
-          types: 'woff,ttf,eot',
-        }
+    rename: {
+      css: {
+        src: 'fonts/icons.css',
+        dest: 'icons.css',
+      },
+      html: {
+        src: 'fonts/icons.html',
+        dest: 'index.html',
       }
     },
 
     clean: {
-      css: 'fonts/icons.css',
-      html: 'fonts/icons.html',
+      fonts: 'fonts',
     },
 
     exec: {
@@ -72,10 +71,12 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-webfont');
   grunt.loadNpmTasks('grunt-exec');
   grunt.loadNpmTasks('grunt-bump');
+  grunt.loadNpmTasks('grunt-rename');
+
 
   grunt.registerTask('default', [
-    'webfont:files',
     'webfont:embedded',
+    'rename',
     'clean',
     'exec:add',
     'bump',
