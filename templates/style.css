@@ -16,13 +16,6 @@
   font-style:normal;
 }
 <% } %>
-<% if (baseStyles) { %>[data-icon] <% if (addLigatures) { %>,
-.ligature-icons<% } %> {
-  display:inline-block;
-  vertical-align:middle;
-  text-align: center;
-}
-<% } %>
 <% if (baseStyles) { %>[data-icon]:before <% if (addLigatures) { %>,
 .ligature-icons:before<% } %> {
   font-family:"<%= fontBaseName %>";
