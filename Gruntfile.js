@@ -41,7 +41,7 @@ module.exports = function(grunt) {
     },
 
     exec: {
-      // add new icons before commiting
+      // add new files before commiting
       add: {
         command: 'git add .'
       },
@@ -75,6 +75,12 @@ module.exports = function(grunt) {
 
 
   grunt.registerTask('default', [
+    'webfont:embedded',
+    'rename',
+    'clean'
+  ]);
+
+  grunt.registerTask('release', [
     'webfont:embedded',
     'rename',
     'clean',
