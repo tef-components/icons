@@ -1,6 +1,5 @@
-/*global module*/
 module.exports = function(grunt) {
-  'use strict';
+  require('jit-grunt')(grunt);
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('bower.json'),
@@ -40,6 +39,14 @@ module.exports = function(grunt) {
       fonts: 'fonts',
     },
 
+    bump: {
+      options : {
+        files: ['bower.json'],
+        commitFiles: ["-a"],
+        pushTo: 'origin'
+      }
+    },
+
     exec: {
       // add new files before commiting
       add: {
@@ -54,25 +61,31 @@ module.exports = function(grunt) {
           'git push origin gh-pages',
           'git checkout master'
         ].join('&&')
+      },
+
+      // adds prompted commit message
+      message: {
+        command: function() {
+          var message = grunt.config('gitmessage');
+          return "git commit -am '" + message + "'";
+        }
       }
     },
 
-    bump: {
-      options : {
-        files: ['bower.json'],
-        commitFiles: ["-a"],
-        pushTo: 'origin'
+    prompt: {
+      commit: {
+        options: {
+          questions: [
+            {
+              config: 'gitmessage',
+              type: 'input',
+              message: 'Commit Message'
+            }
+          ]
+        }
       }
     }
-
   });
-
-  grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-webfont');
-  grunt.loadNpmTasks('grunt-exec');
-  grunt.loadNpmTasks('grunt-bump');
-  grunt.loadNpmTasks('grunt-rename');
-
 
   grunt.registerTask('default', [
     'webfont:embedded',
@@ -85,6 +98,8 @@ module.exports = function(grunt) {
     'rename',
     'clean',
     'exec:add',
+    'prompt',
+    'exec:message',
     'bump',
     'exec:pages'
   ]);
