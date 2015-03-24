@@ -50,7 +50,7 @@ module.exports = function(grunt) {
     exec: {
       // add new files before commiting
       add: {
-        command: 'git add .'
+        command: 'git add -A'
       },
 
       // push to gh-pages branch
