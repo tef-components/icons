@@ -42,7 +42,7 @@
   </head>
   <body>
       <h1>Usage</h1>
-      <pre><code>&lt;i data-icon=&quot;<span id="name">name</span>&quot;&gt;&lt;/i&gt;</code></pre>
+      <pre><code>&lt;i icon=&quot;<span id="name">name</span>&quot;&gt;&lt;/i&gt;</code></pre>
       
       <p>(Click on an icon to get the class name)</p>
 
@@ -50,88 +50,88 @@
 
       <div class="icons" id="icons">
           
-              <div class="icons__item"  data-name="angle_down">
-                <i data-icon="angle_down"></i>
+              <div class="icons__item"  name="angle_down">
+                <i icon="angle_down"></i>
                 angle_down
               </div>
           
-              <div class="icons__item"  data-name="angle_left">
-                <i data-icon="angle_left"></i>
+              <div class="icons__item"  name="angle_left">
+                <i icon="angle_left"></i>
                 angle_left
               </div>
           
-              <div class="icons__item"  data-name="angle_right">
-                <i data-icon="angle_right"></i>
+              <div class="icons__item"  name="angle_right">
+                <i icon="angle_right"></i>
                 angle_right
               </div>
           
-              <div class="icons__item"  data-name="angle_up">
-                <i data-icon="angle_up"></i>
+              <div class="icons__item"  name="angle_up">
+                <i icon="angle_up"></i>
                 angle_up
               </div>
           
-              <div class="icons__item"  data-name="check">
-                <i data-icon="check"></i>
+              <div class="icons__item"  name="check">
+                <i icon="check"></i>
                 check
               </div>
           
-              <div class="icons__item"  data-name="close">
-                <i data-icon="close"></i>
+              <div class="icons__item"  name="close">
+                <i icon="close"></i>
                 close
               </div>
           
-              <div class="icons__item"  data-name="close_circle">
-                <i data-icon="close_circle"></i>
+              <div class="icons__item"  name="close_circle">
+                <i icon="close_circle"></i>
                 close_circle
               </div>
           
-              <div class="icons__item"  data-name="dropdown">
-                <i data-icon="dropdown"></i>
+              <div class="icons__item"  name="dropdown">
+                <i icon="dropdown"></i>
                 dropdown
               </div>
           
-              <div class="icons__item"  data-name="help_circle">
-                <i data-icon="help_circle"></i>
+              <div class="icons__item"  name="help_circle">
+                <i icon="help_circle"></i>
                 help_circle
               </div>
           
-              <div class="icons__item"  data-name="menu">
-                <i data-icon="menu"></i>
+              <div class="icons__item"  name="menu">
+                <i icon="menu"></i>
                 menu
               </div>
           
-              <div class="icons__item"  data-name="minus">
-                <i data-icon="minus"></i>
+              <div class="icons__item"  name="minus">
+                <i icon="minus"></i>
                 minus
               </div>
           
-              <div class="icons__item"  data-name="plus">
-                <i data-icon="plus"></i>
+              <div class="icons__item"  name="plus">
+                <i icon="plus"></i>
                 plus
               </div>
           
-              <div class="icons__item"  data-name="search">
-                <i data-icon="search"></i>
+              <div class="icons__item"  name="search">
+                <i icon="search"></i>
                 search
               </div>
           
-              <div class="icons__item"  data-name="sort">
-                <i data-icon="sort"></i>
+              <div class="icons__item"  name="sort">
+                <i icon="sort"></i>
                 sort
               </div>
           
-              <div class="icons__item"  data-name="sort_asc">
-                <i data-icon="sort_asc"></i>
+              <div class="icons__item"  name="sort_asc">
+                <i icon="sort_asc"></i>
                 sort_asc
               </div>
           
-              <div class="icons__item"  data-name="sort_desc">
-                <i data-icon="sort_desc"></i>
+              <div class="icons__item"  name="sort_desc">
+                <i icon="sort_desc"></i>
                 sort_desc
               </div>
           
-              <div class="icons__item"  data-name="user">
-                <i data-icon="user"></i>
+              <div class="icons__item"  name="user">
+                <i icon="user"></i>
                 user
               </div>
           
@@ -144,7 +144,7 @@
         (function() {
           document.getElementById('icons').onclick = function(e) {
             e = e || window.event;
-            var name = e.target.getAttribute('data-name') || e.target.parentNode.getAttribute('data-name');
+            var name = e.target.getAttribute('name') || e.target.parentNode.getAttribute('name');
             document.getElementById('name').innerHTML = name;
             
           }
