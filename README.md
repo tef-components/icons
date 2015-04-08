@@ -10,4 +10,4 @@ To use the font:
 <span icon="whatever"></span>
 ```
 
-Preview all icons: [http://tef-components.github.io/icons/index.html](http://tef-components.github.io/icons/index.html)
+Preview all icons: [http://tef-components.github.io/icons/fonts/icons.html](http://tef-components.github.io/icons/fonts/icons.html)
