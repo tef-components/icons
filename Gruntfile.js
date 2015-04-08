@@ -35,10 +35,6 @@ module.exports = function(grunt) {
       }
     },
 
-    clean: {
-      fonts: 'fonts',
-    },
-
     bump: {
       options : {
         files: ['bower.json'],
@@ -89,14 +85,10 @@ module.exports = function(grunt) {
 
   grunt.registerTask('default', [
     'webfont:embedded',
-    'rename',
-    'clean'
   ]);
 
   grunt.registerTask('release', [
     'webfont:embedded',
-    'rename',
-    'clean',
     'exec:add',
     'prompt',
     'exec:message',
